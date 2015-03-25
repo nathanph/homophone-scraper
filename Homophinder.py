@@ -7,11 +7,20 @@ import re
 
 
 def main():
+    # Test page to parse.
     page = requests.get('http://www.homophone.com/search?type=begin&q=A')
+    # Grab the HTML.
     data = page.text
+
+    # Have BeautifulSoup parse the HTML.
     soup = BeautifulSoup(data)
+
+    # Grab the <h5> tag text (it should contain "Page # / #").
     pages = soup.h5.text
+
+    # Use RegEx to match the first and second number.
     page_match = re.match(r'Page ([0-9]+) / ([0-9]+)', pages)
+
     if page_match:
         current_page = page_match.group(1)
         last_page = page_match.group(2)
