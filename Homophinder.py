@@ -29,7 +29,15 @@ def main():
     else:
         print("No match")
 
-    extra_code()
+    # Grab the <a> tag text with class "word-btn" (it should contain a homophone).
+    words = soup.find_all("a", class_="word-btn")
+    print("Total words: ", len(words))
+
+    for word in words:
+        print(word.get_text())
+
+    # Run
+    #extra_code()
 
 def extra_code():
     # Loop through each character a-z.
