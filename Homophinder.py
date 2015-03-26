@@ -1,9 +1,9 @@
-__author__ = 'hernandeznp'
+__author__ = 'Nathan Hernandez'
 
-from lxml import html
 from bs4 import BeautifulSoup
 import requests
 import re
+import string
 
 
 def main():
@@ -28,6 +28,13 @@ def main():
         print("Last page: ", last_page)
     else:
         print("No match")
+
+    extra_code()
+
+def extra_code():
+    # Loop through each character a-z.
+    for char in string.ascii_lowercase:
+        print(char)
 
 if __name__ == "__main__":
     main()
